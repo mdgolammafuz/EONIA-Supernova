@@ -376,87 +376,93 @@ code {
 <p>For the time being, we are not deploying the 3D image data (Sizes are big and we need to work on the image processing part and figure a way out !!! ) on the IC Blockchain. Only, the 2D image representing the real estate, the NFD ID of the property, and the Principal ID of the owner are recorded on-chain. We are trying to automate the process of generating a 2D image corresponding to the 3D scanned image of the property and deploying that specific information on IC Blockchain</p>
 </li>
 <li>
-<p>We are making PUT and GET requests to spectre3d API and using photogrammetry and machine learning with Spectre3d to convert it into a 3D mesh. For the time being, we are storing the 3D image data on IPFS and later render it back from IPFS to the Discover section of EONIA webpage.</p>
+<p>We are making PUT and GET requests to spectre3d API and using photogrammetry and machine learning with Spectre3d to convert it into a 3D mesh. For the time being, we are storing the 3D image data on IPFS and later rendering it back from IPFS to the Discover section of the EONIA webpage.</p>
 </li>
 </ol>
 <h1 id="to-install-and-run-the-eond-marketplace-project">To Install and Run the EonD MARKETPLACE Project</h1>
 <ol>
 <li>start local dfx</li>
 </ol>
-<pre class="hljs"><code><div>dfx start
+<pre class="hljs"><code><div>    dfx start
 </div></code></pre>
 <ol start="2">
 <li>Run Webpack Server</li>
 </ol>
-<pre class="hljs"><code><div>npx webpack
+<pre class="hljs"><code><div>    npx webpack
 </div></code></pre>
 <ol start="3">
 <li>Run NPM server</li>
 </ol>
-<pre class="hljs"><code><div>npm start
+<pre class="hljs"><code><div>    npm start
 </div></code></pre>
 <ol start="4">
 <li>Deploy canisters</li>
 </ol>
 <p>The following example mints a hard coded image of a property on the IC Blockchain from the cli</p>
-<pre class="hljs"><code><div>dfx deploy --argument='(&quot;MafuzProperty #123&quot;, principal &quot;gbdev-tyqsv-hnvqv-7mgz4-4kcfl-wbv6x-6khez-y56gq-uohqs-quomc-uqe&quot;, (vec {137; 80; 78; 71; 13; 10; 26; 10; 0; 0; 0; 13; 73; 72; 68; 82; 0; 0; 0; 10; 0; 0; 0; 10; 8; 6; 0; 0; 0; 141; 50; 207; 189; 0; 0; 0; 1; 115; 82; 71; 66; 0; 174; 206; 28; 233; 0; 0; 0; 68; 101; 88; 73; 102; 77; 77; 0; 42; 0; 0; 0; 8; 0; 1; 135; 105; 0; 4; 0; 0; 0; 1; 0; 0; 0; 26; 0; 0; 0; 0; 0; 3; 160; 1; 0; 3; 0; 0; 0; 1; 0; 1; 0; 0; 160; 2; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 160; 3; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 0; 0; 0; 0; 59; 120; 184; 245; 0; 0; 0; 113; 73; 68; 65; 84; 24; 25; 133; 143; 203; 13; 128; 48; 12; 67; 147; 94; 97; 30; 24; 0; 198; 134; 1; 96; 30; 56; 151; 56; 212; 85; 68; 17; 88; 106; 243; 241; 235; 39; 42; 183; 114; 137; 12; 106; 73; 236; 105; 98; 227; 152; 6; 193; 42; 114; 40; 214; 126; 50; 52; 8; 74; 183; 108; 158; 159; 243; 40; 253; 186; 75; 122; 131; 64; 0; 160; 192; 168; 109; 241; 47; 244; 154; 152; 112; 237; 159; 252; 105; 64; 95; 48; 61; 12; 3; 61; 167; 244; 38; 33; 43; 148; 96; 3; 71; 8; 102; 4; 43; 140; 164; 168; 250; 23; 219; 242; 38; 84; 91; 18; 112; 63; 0; 0; 0; 0; 73; 69; 78; 68; 174; 66; 96; 130;}))'
+<pre class="hljs"><code><div>    dfx deploy --argument='(&quot;MafuzProperty #123&quot;, principal &quot;gbdev-tyqsv-hnvqv-7mgz4-4kcfl-wbv6x-6khez-y56gq-uohqs-quomc-uqe&quot;, (vec {137; 80; 78; 71; 13; 10; 26; 10; 0; 0; 0; 13; 73; 72; 68; 82; 0; 0; 0; 10; 0; 0; 0; 10; 8; 6; 0; 0; 0; 141; 50; 207; 189; 0; 0; 0; 1; 115; 82; 71; 66; 0; 174; 206; 28; 233; 0; 0; 0; 68; 101; 88; 73; 102; 77; 77; 0; 42; 0; 0; 0; 8; 0; 1; 135; 105; 0; 4; 0; 0; 0; 1; 0; 0; 0; 26; 0; 0; 0; 0; 0; 3; 160; 1; 0; 3; 0; 0; 0; 1; 0; 1; 0; 0; 160; 2; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 160; 3; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 0; 0; 0; 0; 59; 120; 184; 245; 0; 0; 0; 113; 73; 68; 65; 84; 24; 25; 133; 143; 203; 13; 128; 48; 12; 67; 147; 94; 97; 30; 24; 0; 198; 134; 1; 96; 30; 56; 151; 56; 212; 85; 68; 17; 88; 106; 243; 241; 235; 39; 42; 183; 114; 137; 12; 106; 73; 236; 105; 98; 227; 152; 6; 193; 42; 114; 40; 214; 126; 50; 52; 8; 74; 183; 108; 158; 159; 243; 40; 253; 186; 75; 122; 131; 64; 0; 160; 192; 168; 109; 241; 47; 244; 154; 152; 112; 237; 159; 252; 105; 64; 95; 48; 61; 12; 3; 61; 167; 244; 38; 33; 43; 148; 96; 3; 71; 8; 102; 4; 43; 140; 164; 168; 250; 23; 219; 242; 38; 84; 91; 18; 112; 63; 0; 0; 0; 0; 73; 69; 78; 68; 174; 66; 96; 130;}))'
 </div></code></pre>
 <h1 id="to-install-and-run-the-eon-nft-token-project">To Install and Run the EON NFT Token Project</h1>
 <ol>
-<li>Head to localhost</li>
-</ol>
+<li>
+<p>Head to localhost</p>
 <p>http://localhost:8080/</p>
-<pre class="hljs"><code><div>
-# Creating NFT for Testing
-
-
-1. Mint an NFT on the command line to get NFT into mapOfNFTs:
-
-The following example mints a hard coded image of a property on the IC Blockchain from the CLI.
+</li>
+<li>
+<p>Creating NFT for Testing</p>
+</li>
+<li>
+<p>Mint an NFT on the command line to get NFT into mapOfNFTs:</p>
+</li>
+</ol>
+<p>The following example mints a hard coded image of a property on the IC Blockchain from the CLI.</p>
+<pre class="hljs"><code><div>    dfx canister call opend mint '(vec {137; 80; 78; 71; 13; 10; 26; 10; 0; 0; 0; 13; 73; 72; 68; 82; 0; 0; 0; 10; 0; 0; 0; 10; 8; 6; 0; 0; 0; 141; 50; 207; 189; 0; 0; 0; 1; 115; 82; 71; 66; 0; 174; 206; 28; 233; 0; 0; 0; 68; 101; 88; 73; 102; 77; 77; 0; 42; 0; 0; 0; 8; 0; 1; 135; 105; 0; 4; 0; 0; 0; 1; 0; 0; 0; 26; 0; 0; 0; 0; 0; 3; 160; 1; 0; 3; 0; 0; 0; 1; 0; 1; 0; 0; 160; 2; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 160; 3; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 0; 0; 0; 0; 59; 120; 184; 245; 0; 0; 0; 113; 73; 68; 65; 84; 24; 25; 133; 143; 203; 13; 128; 48; 12; 67; 147; 94; 97; 30; 24; 0; 198; 134; 1; 96; 30; 56; 151; 56; 212; 85; 68; 17; 88; 106; 243; 241; 235; 39; 42; 183; 114; 137; 12; 106; 73; 236; 105; 98; 227; 152; 6; 193; 42; 114; 40; 214; 126; 50; 52; 8; 74; 183; 108; 158; 159; 243; 40; 253; 186; 75; 122; 131; 64; 0; 160; 192; 168; 109; 241; 47; 244; 154; 152; 112; 237; 159; 252; 105; 64; 95; 48; 61; 12; 3; 61; 167; 244; 38; 33; 43; 148; 96; 3; 71; 8; 102; 4; 43; 140; 164; 168; 250; 23; 219; 242; 38; 84; 91; 18; 112; 63; 0; 0; 0; 0; 73; 69; 78; 68; 174; 66; 96; 130;}, &quot;Mafuzproperty #123&quot;)'
+</div></code></pre>
+<ol start="3">
+<li>List the item into mapOfListings:</li>
+</ol>
+<pre class="hljs"><code><div>    dfx canister call opend listItem '(principal &quot;&lt;REPLACE WITH NFT CANISTER ID&gt;&quot;, 2)'
+</div></code></pre>
+<ol start="4">
+<li>Get OpenD canister ID:</li>
+</ol>
+<pre class="hljs"><code><div>    dfx canister id opend
 
 </div></code></pre>
-<p>dfx canister call opend mint '(vec {137; 80; 78; 71; 13; 10; 26; 10; 0; 0; 0; 13; 73; 72; 68; 82; 0; 0; 0; 10; 0; 0; 0; 10; 8; 6; 0; 0; 0; 141; 50; 207; 189; 0; 0; 0; 1; 115; 82; 71; 66; 0; 174; 206; 28; 233; 0; 0; 0; 68; 101; 88; 73; 102; 77; 77; 0; 42; 0; 0; 0; 8; 0; 1; 135; 105; 0; 4; 0; 0; 0; 1; 0; 0; 0; 26; 0; 0; 0; 0; 0; 3; 160; 1; 0; 3; 0; 0; 0; 1; 0; 1; 0; 0; 160; 2; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 160; 3; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 0; 0; 0; 0; 59; 120; 184; 245; 0; 0; 0; 113; 73; 68; 65; 84; 24; 25; 133; 143; 203; 13; 128; 48; 12; 67; 147; 94; 97; 30; 24; 0; 198; 134; 1; 96; 30; 56; 151; 56; 212; 85; 68; 17; 88; 106; 243; 241; 235; 39; 42; 183; 114; 137; 12; 106; 73; 236; 105; 98; 227; 152; 6; 193; 42; 114; 40; 214; 126; 50; 52; 8; 74; 183; 108; 158; 159; 243; 40; 253; 186; 75; 122; 131; 64; 0; 160; 192; 168; 109; 241; 47; 244; 154; 152; 112; 237; 159; 252; 105; 64; 95; 48; 61; 12; 3; 61; 167; 244; 38; 33; 43; 148; 96; 3; 71; 8; 102; 4; 43; 140; 164; 168; 250; 23; 219; 242; 38; 84; 91; 18; 112; 63; 0; 0; 0; 0; 73; 69; 78; 68; 174; 66; 96; 130;}, &quot;Mafuzproperty #123&quot;)'</p>
-<pre class="hljs"><code><div>
-2. List the item into mapOfListings:
+<ol start="5">
+<li>Transfer NFT to OpenD:</li>
+</ol>
+<pre class="hljs"><code><div>    dfx canister call &lt;REPLACE WITH NFT CANISTER ID&gt; transferOwnership '(principal &quot;ryjl3-tyaaa-aaaaa-aaaba-cai&quot;, true)'
 
 </div></code></pre>
-<p>dfx canister call opend listItem '(principal &quot;<REPLACE WITH NFT CANISTER ID>&quot;, 2)'</p>
-<pre class="hljs"><code><div>
-3. Get OpenD canister ID:
+<h1 id="videogrammetry--to-install-and-run-the-3d-scanning--web3-storage-project">Videogrammetry : To Install and Run the 3D Scanning &amp; Web3 Storage Project</h1>
+<h2 id="conneting-to-the-token-canister">Conneting to the Token Canister</h2>
+<ol>
+<li>
+<p>Copy over the token declarations folder</p>
+</li>
+<li>
+<p>Set the token canister id into the <REPLACE WITH TOKEN CANISTER ID></p>
+</li>
+</ol>
+<pre class="hljs"><code><div>    const dangPrincipal = Principal.fromText(&quot;&lt;REPLACE WITH TOKEN CANISTER ID&gt;&quot;);
 
 </div></code></pre>
-<p>dfx canister id opend</p>
-<pre class="hljs"><code><div>
-4. Transfer NFT to OpenD:
+<h2 id="this-repository-contains-scripts-to-convert-a-video-of-3d-real-life-objects-or-places-in-3d-model-using-videogrammetry">This repository contains scripts to convert a video of 3d real life objects or places in 3d model using videogrammetry.</h2>
+<p>The main python script has the following algorithm:</p>
+<ol>
+<li>User input the required data</li>
+<li>Make a post request to the spectre3D api with the input video file.</li>
+<li>Make a get request to spectre3D api to get the status of the processing.</li>
+<li>If successfully processed, run the javascript program to upload the 3D model generated to the ipfs.</li>
+<li>After sucessfull upload, we get a confirmation message.</li>
+</ol>
+<h2 id="to-run-the-script">To run the script:</h2>
+<pre class="hljs"><code><div>    python run_api.py
 
 </div></code></pre>
-<p>dfx canister call <REPLACE WITH NFT CANISTER ID> transferOwnership '(principal &quot;ryjl3-tyaaa-aaaaa-aaaba-cai&quot;, true)'</p>
-<pre class="hljs"><code><div>
-# Conneting to the Token Canister
+<h2 id="to-upload-a-custom-file-to-the-ipfs">To upload a custom file to the IPFS:</h2>
+<pre class="hljs"><code><div>    node web3-client.js --token=&lt;api-token&gt; &lt;file&gt;
 
-1. Copy over the token declarations folder
-
-2. Set the token canister id into the &lt;REPLACE WITH TOKEN CANISTER ID&gt;
-
-</div></code></pre>
-<p>const dangPrincipal = Principal.fromText(&quot;<REPLACE WITH TOKEN CANISTER ID>&quot;);</p>
-<pre class="hljs"><code><div>
-# Videogrammetry : To Install and Run the 3D Scanning &amp; Web3 Storage Project
-
-This repository contains scripts to convert a video of 3d real life objects or places in 3d model using videogrammetry.
-
-#### The main python script has the following algorithm:
-1. User input the required data
-2. Make a post request to the spectre3D api with the input video file.
-3. Make a get request to spectre3D api to get the status of the processing.
-4. If successfully processed, run the javascript program to upload the 3D model generated to the ipfs.
-5. After sucessfull upload, we get a confirmation message. 
-
-## To run the script:
-    python run_api.py
-
-## To upload a custom file to the IPFS:
-    node web3-client.js --token=&lt;api-token&gt; &lt;file&gt;
 </div></code></pre>
 
 </body>
