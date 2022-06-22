@@ -1,0 +1,16 @@
+import React from "react";
+
+function Header() {
+  return (
+    <header>
+      <div className="blue window" id="logo">
+        <h1>
+            EON-Bank
+       
+        </h1>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
