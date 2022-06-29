@@ -18,8 +18,10 @@ async function main () {
   const files = []
 
   for (const path of args._) {
+    console.log(path)
     const pathFiles = await getFilesFromPath(path)
     files.push(...pathFiles)
+    console.log(pathFiles)
   }
 
   console.log(`Uploading ${files.length} files`)
